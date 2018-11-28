@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2047
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThinkInDoNet_AutoFac", "ThinkInDoNet_AutoFac\ThinkInDoNet_AutoFac.csproj", "{A7548120-62BA-4396-BC0E-681EB99316F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoFac_NetCoreMVC", "ThinkInDoNet_AutoFac\AutoFac_NetCoreMVC.csproj", "{A7548120-62BA-4396-BC0E-681EB99316F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoFac_NetMVC", "AutoFac_NetMVC\AutoFac_NetMVC.csproj", "{32D75FBD-7C79-4304-8ED7-44AF721012D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{A7548120-62BA-4396-BC0E-681EB99316F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A7548120-62BA-4396-BC0E-681EB99316F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A7548120-62BA-4396-BC0E-681EB99316F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32D75FBD-7C79-4304-8ED7-44AF721012D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32D75FBD-7C79-4304-8ED7-44AF721012D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32D75FBD-7C79-4304-8ED7-44AF721012D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32D75FBD-7C79-4304-8ED7-44AF721012D5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
