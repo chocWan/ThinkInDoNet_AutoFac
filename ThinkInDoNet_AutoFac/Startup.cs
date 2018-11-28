@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ThinkInDoNet_AutoFac.Controllers;
 using ThinkInDoNet_AutoFac.Models;
 using ThinkInDoNet_AutoFac.Modules;
 using ThinkInDoNet_AutoFac.Services;
@@ -37,7 +38,7 @@ namespace ThinkInDoNet_AutoFac
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-            services.AddAutofac();
+            //services.AddAutofac();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             #region 单个注入
             //var builder = new ContainerBuilder();//实例化 AutoFac  容器            

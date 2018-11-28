@@ -18,6 +18,8 @@ namespace ThinkInDoNet_AutoFac.Controllers
             readService = _readService;
         }
 
+        //public IReadService readService { set; get; }
+
         public IActionResult Index()
         {
             string res = readService.GetContent("choc test");
