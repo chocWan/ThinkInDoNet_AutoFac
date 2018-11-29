@@ -29,7 +29,7 @@ namespace ThinkInDoNet_AutoFac
                 .ConfigureServices(services => services.AddAutofac())
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseIISIntegration()
-                .UseStartup<Startup>();
+                .UseStartup<StartupDev>();
             return host;
         }
 

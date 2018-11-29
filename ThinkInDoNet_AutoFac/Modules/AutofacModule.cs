@@ -12,14 +12,14 @@ namespace ThinkInDoNet_AutoFac.Modules
         protected override void Load(ContainerBuilder builder)
         {
             var dataAccess = System.Reflection.Assembly.GetExecutingAssembly();
-            //属性注入控制器
-            builder.RegisterType<HomeController>().PropertiesAutowired();
+            //添加PropertiesAutowired即为属性注入，不添加则默认为构造方法注入
+            builder.RegisterAssemblyTypes(dataAccess)
+                .Where(t => t.Name.EndsWith("Controller"))
+                .PropertiesAutowired();
             builder.RegisterAssemblyTypes(dataAccess)
                 .Where(t => t.Name.EndsWith("Service"))
                 .AsImplementedInterfaces()
-                .InstancePerRequest()
                 .PropertiesAutowired();
-            
         }
     }
 }

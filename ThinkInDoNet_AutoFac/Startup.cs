@@ -29,10 +29,10 @@ namespace ThinkInDoNet_AutoFac
         }
 
         public IConfiguration Configuration { get; }
-        //public IContainer ApplicationContainer { get; private set; }
+        public IContainer ApplicationContainer { get; private set; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             services.Configure<CookiePolicyOptions>(options =>
             {
@@ -40,10 +40,9 @@ namespace ThinkInDoNet_AutoFac
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-            //替换控制器所有者
+            //替换控制器所有者，因为控制器实例默认由NetCore管理
             services.Replace(ServiceDescriptor.Transient<IControllerActivator, ServiceBasedControllerActivator>());
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            services.AddAutofac();
             #region 单个注入
             //var builder = new ContainerBuilder();//实例化 AutoFac  容器            
             //builder.Populate(services);
@@ -60,12 +59,12 @@ namespace ThinkInDoNet_AutoFac
             //return new AutofacServiceProvider(ApplicationContainer);
             #endregion
             #region 扫描注入 添加模块
-            //var builder = new ContainerBuilder();//实例化 AutoFac  容器     
-            //var dataAccess = Assembly.GetExecutingAssembly();
-            //builder.RegisterAssemblyTypes(dataAccess).Where(t => t.Name.EndsWith("Service")).AsImplementedInterfaces();
-            //builder.Populate(services);
-            //ApplicationContainer = builder.Build();
-            //return new AutofacServiceProvider(ApplicationContainer);
+            var builder = new ContainerBuilder();    
+            var dataAccess = Assembly.GetExecutingAssembly();
+            builder.RegisterModule(new AutofacModule());
+            builder.Populate(services);
+            ApplicationContainer = builder.Build();
+            return new AutofacServiceProvider(ApplicationContainer);
             #endregion
         }
 
@@ -92,16 +91,6 @@ namespace ThinkInDoNet_AutoFac
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
-        }
-
-        public void ConfigureContainer(ContainerBuilder builder)
-        {
-            // Add any Autofac modules or registrations.
-            // This is called AFTER ConfigureServices so things you
-            // register here OVERRIDE things registered in ConfigureServices.
-            // You must have the call to AddAutofac in the Program.Main
-            // method or this won't be called.
-            builder.RegisterModule(new AutofacModule());
         }
 
     }

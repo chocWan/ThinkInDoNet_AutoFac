@@ -12,12 +12,14 @@ namespace ThinkInDoNet_AutoFac.Controllers
     public class HomeController : Controller
     {
 
+        //构造方法注入
         //private IReadService readService;
         //public HomeController(IReadService _readService)
         //{
         //    readService = _readService;
         //}
 
+        //属性注入
         public IReadService readService { set; get; }
 
         public IActionResult Index()
