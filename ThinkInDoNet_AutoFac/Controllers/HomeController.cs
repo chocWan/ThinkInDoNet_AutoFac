@@ -12,13 +12,13 @@ namespace ThinkInDoNet_AutoFac.Controllers
     public class HomeController : Controller
     {
 
-        private IReadService readService;
-        public HomeController(IReadService _readService)
-        {
-            readService = _readService;
-        }
+        //private IReadService readService;
+        //public HomeController(IReadService _readService)
+        //{
+        //    readService = _readService;
+        //}
 
-        //public IReadService readService { set; get; }
+        public IReadService readService { set; get; }
 
         public IActionResult Index()
         {
