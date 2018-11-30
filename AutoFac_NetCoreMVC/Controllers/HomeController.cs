@@ -22,11 +22,12 @@ namespace AutoFac_NetCoreMVC.Controllers
 
         //属性注入
         public IReadService readService { set; get; }
-        public ILog log = LogManager.GetLogger("","");
+        private ILog log = LogManager.GetLogger(Startup.LogRepository.Name, typeof(HomeController));
 
         public IActionResult Index()
         {
             string res = readService.GetContent("choc test");
+            var res2 = readService.GetContents();
             log.Info(res);//it does not work!
             return View();
         }

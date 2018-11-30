@@ -15,16 +15,21 @@ namespace AutoFac_NetCoreMVC.Repositories
     /// <typeparam name="T"></typeparam>
     public class BaseRepository<T> : IRepository<T> where T : Entity  //约束在最后面。
     {
-        private readonly RaeClassContext _context;
-        private DbSet<T> _entities;
 
+        public RaeClassContext RaeClassContext { set; get; }
         /// <summary>
-        /// 
+        /// 实现泛型接口中的IQueryable<T>类型的 Table属性
+        /// 标记为virtual是为了可以重写它
         /// </summary>
-        public BaseRepository(RaeClassContext context)
+        public virtual IQueryable<T> Table
         {
-            _context = context;
+            get
+            {
+                return this.Entities;
+            }
         }
+
+        private DbSet<T> entities;
 
         public IQueryable<T> GetAll()
         {
@@ -55,25 +60,12 @@ namespace AutoFac_NetCoreMVC.Repositories
         {
             get
             {
-                if (_entities == null)
+                if (entities == null)
                 {
-                    _entities = _context.Set<T>();
+                    entities = RaeClassContext.Set<T>();
                 }
-                return _entities;
+                return entities;
             }
-        }
-
-        /// <summary>
-        /// 实现泛型接口中的IQueryable<T>类型的 Table属性
-        /// 标记为virtual是为了可以重写它
-        /// </summary>
-        public virtual IQueryable<T> Table
-        {
-            get
-            {
-                return this.Entities;
-            }
-
         }
 
         public T GetById(object id)
@@ -92,7 +84,7 @@ namespace AutoFac_NetCoreMVC.Repositories
                 else
                 {
                     this.Entities.Add(model);
-                    this._context.SaveChanges();
+                    this.RaeClassContext.SaveChanges();
                 }
             }
             catch (Exception ex)
@@ -113,7 +105,7 @@ namespace AutoFac_NetCoreMVC.Repositories
                 else
                 {
                     //直接保存了
-                    this._context.SaveChanges();
+                    this.RaeClassContext.SaveChanges();
                 }
             }
             catch (Exception ex)
@@ -131,13 +123,14 @@ namespace AutoFac_NetCoreMVC.Repositories
                     throw new ArgumentNullException("entity");
                 }
                 this.Entities.Remove(model);
-                this._context.SaveChanges();
+                this.RaeClassContext.SaveChanges();
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
         }
+
     }
 
 }

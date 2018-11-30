@@ -25,6 +25,7 @@ namespace AutoFac_NetCoreMVC.Modules
             builder
                 .RegisterGeneric(typeof(BaseRepository<>))
                 .As(typeof(IRepository<>))
+                .PropertiesAutowired()
                 .InstancePerDependency();//注册仓储泛型
 
         }

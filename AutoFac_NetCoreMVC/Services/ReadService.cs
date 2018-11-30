@@ -9,14 +9,18 @@ namespace AutoFac_NetCoreMVC.Services
 {
     public class ReadService : IReadService
     {
-        public IRepository<ReadContent> readRepository;
+
+        public IRepository<ReadContent> ReadRepository { set; get; }
+
         public string GetContent(string fnumber)
         {
             return $"the number is {fnumber}";
         }
+
         public List<ReadContent> GetContents()
         {
-            return readRepository.GetAllList();
+            return ReadRepository.GetAllList();
         }
+
     }
 }

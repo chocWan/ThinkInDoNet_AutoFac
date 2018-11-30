@@ -15,9 +15,4 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.3" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Log\LogError\" />
-    <Folder Include="Log\LogInfo\" />
-  </ItemGroup>
-
 </Project>

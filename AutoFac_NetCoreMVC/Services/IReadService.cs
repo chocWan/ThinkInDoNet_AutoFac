@@ -9,5 +9,6 @@ namespace AutoFac_NetCoreMVC.Services
     public interface IReadService
     {
         string GetContent(string fnumber);
+        List<ReadContent> GetContents();
     }
 }
