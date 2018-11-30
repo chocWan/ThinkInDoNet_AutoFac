@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using log4net;
 using Microsoft.AspNetCore.Mvc;
-using ThinkInDoNet_AutoFac.Models;
-using ThinkInDoNet_AutoFac.Services;
+using AutoFac_NetCoreMVC.Models;
+using AutoFac_NetCoreMVC.Services;
 
-namespace ThinkInDoNet_AutoFac.Controllers
+namespace AutoFac_NetCoreMVC.Controllers
 {
     public class HomeController : Controller
     {
@@ -21,10 +22,12 @@ namespace ThinkInDoNet_AutoFac.Controllers
 
         //属性注入
         public IReadService readService { set; get; }
+        public ILog log = LogManager.GetLogger("","");
 
         public IActionResult Index()
         {
             string res = readService.GetContent("choc test");
+            log.Info(res);//it does not work!
             return View();
         }
 

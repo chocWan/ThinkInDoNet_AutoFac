@@ -1,6 +1,6 @@
 using System;
 
-namespace ThinkInDoNet_AutoFac.Models
+namespace AutoFac_NetCoreMVC.Models
 {
     public class ErrorViewModel
     {

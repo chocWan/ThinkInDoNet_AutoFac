@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using ThinkInDoNet_AutoFac.Context;
-using ThinkInDoNet_AutoFac.Models;
+using AutoFac_NetCoreMVC.Context;
+using AutoFac_NetCoreMVC.Models;
 
-namespace ThinkInDoNet_AutoFac.Repositories
+namespace AutoFac_NetCoreMVC.Repositories
 {
     /// <summary>
     /// 泛型仓储类，实现泛型仓储接口。
@@ -30,14 +30,17 @@ namespace ThinkInDoNet_AutoFac.Repositories
         {
             return Table;
         }
+
         public List<T> GetAllList()
         {
             return GetAll().ToList();
         }
+
         public List<T> GetAllList(Expression<Func<T, bool>> predicate)
         {
             return GetAll().Where(predicate).ToList();
         }
+
         public async Task<List<T>> GetAllListAsync()
         {
             return await GetAll().ToListAsync();
@@ -47,6 +50,7 @@ namespace ThinkInDoNet_AutoFac.Repositories
         {
             return await GetAll().Where(predicate).ToListAsync();
         }
+
         public DbSet<T> Entities
         {
             get

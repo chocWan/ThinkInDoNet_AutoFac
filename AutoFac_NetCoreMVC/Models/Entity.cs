@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ThinkInDoNet_AutoFac.Models
+namespace AutoFac_NetCoreMVC.Models
 {
     /// <summary>
     /// 泛型实体基类

@@ -15,9 +15,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Logging;
-using ThinkInDoNet_AutoFac.Modules;
+using AutoFac_NetCoreMVC.Modules;
 
-namespace ThinkInDoNet_AutoFac
+namespace AutoFac_NetCoreMVC
 {
     public class StartupDev
     {

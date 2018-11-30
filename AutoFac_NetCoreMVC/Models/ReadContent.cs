@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ThinkInDoNet_AutoFac.Models
+namespace AutoFac_NetCoreMVC.Models
 {
-    public class ReadContent
+    public class ReadContent:Entity
     {
         [Key]
         public int FId { set; get; }

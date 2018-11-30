@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ThinkInDoNet_AutoFac.Models;
+using AutoFac_NetCoreMVC.Models;
 
-namespace ThinkInDoNet_AutoFac.Context
+namespace AutoFac_NetCoreMVC.Context
 {
     public class RaeClassContext:DbContext
     {

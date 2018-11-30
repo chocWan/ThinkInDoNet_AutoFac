@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using ThinkInDoNet_AutoFac.Models;
+using AutoFac_NetCoreMVC.Models;
 
-namespace ThinkInDoNet_AutoFac.Repositories
+namespace AutoFac_NetCoreMVC.Repositories
 {
     /// <summary>
     /// 泛型仓储接口
