@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2047
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoFac_NetCoreMVC", "ThinkInDoNet_AutoFac\AutoFac_NetCoreMVC.csproj", "{A7548120-62BA-4396-BC0E-681EB99316F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoFac_NetCoreMVC", "AutoFac_NetCoreMVC\AutoFac_NetCoreMVC.csproj", "{A7548120-62BA-4396-BC0E-681EB99316F6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoFac_NetMVC", "AutoFac_NetMVC\AutoFac_NetMVC.csproj", "{32D75FBD-7C79-4304-8ED7-44AF721012D5}"
 EndProject
