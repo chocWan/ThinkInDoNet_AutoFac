@@ -3,14 +3,16 @@ using System;
 using AutoFac_NetCoreMVC.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AutoFac_NetCoreMVC.Migrations
 {
     [DbContext(typeof(RaeClassContext))]
-    partial class RaeClassContextModelSnapshot : ModelSnapshot
+    [Migration("20181201160038_raeclass3")]
+    partial class raeclass3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -15,11 +15,13 @@ namespace AutoFac_NetCoreMVC.Context
         }
 
         public DbSet<ReadContent> ReadContentSet { get; set; }
+        public DbSet<LogRequest> LogRequestSet { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //自定义表名
             modelBuilder.Entity<ReadContent>().ToTable("ReadContent", "dbo");
+            modelBuilder.Entity<LogRequest>().ToTable("LogRequest", "dbo");
 
             base.OnModelCreating(modelBuilder);
         }

@@ -1,0 +1,4 @@
+异常时间：2018-11-30 22:04:47,303 
+ 异常级别：ERROR
+ 异常位置：AutoFac_NetCoreMVC.Controllers.HomeController
+ 异常内容：the number is choc testerror

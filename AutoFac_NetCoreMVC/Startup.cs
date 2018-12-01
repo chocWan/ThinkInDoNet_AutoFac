@@ -74,7 +74,7 @@ namespace AutoFac_NetCoreMVC
             var builder = new ContainerBuilder();    
             var dataAccess = Assembly.GetExecutingAssembly();
             builder.RegisterModule(new AutofacModule());
-            //builder.RegisterModule(new LoggingModule());
+            //builder.RegisterModule(new LoggingModule());//it does nto work!!!!
             builder.Populate(services);
             ApplicationContainer = builder.Build();
             return new AutofacServiceProvider(ApplicationContainer);

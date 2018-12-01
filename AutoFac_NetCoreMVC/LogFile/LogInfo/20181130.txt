@@ -1,0 +1,3 @@
+日志时间：2018-11-30 22:04:47,294 
+日志级别：INFO   
+日志内容：the number is choc testinfo

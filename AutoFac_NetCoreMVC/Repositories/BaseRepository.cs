@@ -17,6 +17,19 @@ namespace AutoFac_NetCoreMVC.Repositories
     {
 
         public RaeClassContext RaeClassContext { set; get; }
+
+        public DbSet<T> Entities
+        {
+            get
+            {
+                if (entities == null)
+                {
+                    entities = RaeClassContext.Set<T>();
+                }
+                return entities;
+            }
+        }
+
         /// <summary>
         /// 实现泛型接口中的IQueryable<T>类型的 Table属性
         /// 标记为virtual是为了可以重写它
@@ -56,17 +69,7 @@ namespace AutoFac_NetCoreMVC.Repositories
             return await GetAll().Where(predicate).ToListAsync();
         }
 
-        public DbSet<T> Entities
-        {
-            get
-            {
-                if (entities == null)
-                {
-                    entities = RaeClassContext.Set<T>();
-                }
-                return entities;
-            }
-        }
+        
 
         public T GetById(object id)
         {

@@ -11,6 +11,7 @@ namespace AutoFac_NetCoreMVC.Services
     {
 
         public IRepository<ReadContent> ReadRepository { set; get; }
+        public IRepository<LogRequest> LogRequestRepository { set; get; }
 
         public string GetContent(string fnumber)
         {
@@ -19,6 +20,7 @@ namespace AutoFac_NetCoreMVC.Services
 
         public List<ReadContent> GetContents()
         {
+            var logres = LogRequestRepository.GetAllList();
             return ReadRepository.GetAllList();
         }
 

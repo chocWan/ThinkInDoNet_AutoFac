@@ -7,6 +7,8 @@ using log4net;
 using Microsoft.AspNetCore.Mvc;
 using AutoFac_NetCoreMVC.Models;
 using AutoFac_NetCoreMVC.Services;
+using log4net.Core;
+using AutoFac_NetCoreMVC.Repositories;
 
 namespace AutoFac_NetCoreMVC.Controllers
 {
@@ -21,14 +23,20 @@ namespace AutoFac_NetCoreMVC.Controllers
         //}
 
         //属性注入
-        public IReadService readService { set; get; }
-        private ILog log = LogManager.GetLogger(Startup.LogRepository.Name, typeof(HomeController));
+        public IReadService ReadService { set; get; }
+        public IRepository<LogRequest> LogRequestRepository { set; get; }
+        private ILog logger = LogManager.GetLogger(Startup.LogRepository.Name, typeof(HomeController));
 
         public IActionResult Index()
         {
-            string res = readService.GetContent("choc test");
-            var res2 = readService.GetContents();
-            log.Info(res);//it does not work!
+            string res = ReadService.GetContent("choc test");
+            var res2 = ReadService.GetContents();
+            //logger.Debug(res +"debug");
+            //logger.Info(res + "info");
+            //logger.Error(res + "error");
+            LogRequest logRequest = new LogRequest { FName= "FName", FDetails= "FDetails", FIPAddress = "FIPAddress", FMessage = "FMessage", FParameters = "FParameters", FRequestTime = DateTime.Now,FRequestType = "FRequestType", FRequestUrl = "FRequestUrl", FRequestUser = "FRequestUser" };
+            logger.Info(logRequest);
+            //var logRes = LogRequestRepository.GetAllList();
             return View();
         }
 
