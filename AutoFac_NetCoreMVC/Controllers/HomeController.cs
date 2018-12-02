@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using log4net;
 using Microsoft.AspNetCore.Mvc;
 using AutoFac_NetCoreMVC.Models;
 using AutoFac_NetCoreMVC.Services;
-using log4net.Core;
 using AutoFac_NetCoreMVC.Repositories;
 
 namespace AutoFac_NetCoreMVC.Controllers
@@ -25,8 +23,7 @@ namespace AutoFac_NetCoreMVC.Controllers
         //属性注入
         public IReadService ReadService { set; get; }
         public IRepository<LogRequest> LogRequestRepository { set; get; }
-        //private ILog logger = LogManager.GetLogger(Startup.LogRepository.Name, typeof(HomeController));
-
+       
         public IActionResult Index()
         {
             string res = ReadService.GetContent("choc test");

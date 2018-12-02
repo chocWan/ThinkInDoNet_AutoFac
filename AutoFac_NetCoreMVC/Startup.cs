@@ -9,9 +9,6 @@ using Autofac.Extensions.DependencyInjection;
 using AutoFac_NetCoreMVC.Context;
 using AutoFac_NetCoreMVC.Models;
 using AutoFac_NetCoreMVC.Modules;
-using log4net;
-using log4net.Config;
-using log4net.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -28,17 +25,12 @@ namespace AutoFac_NetCoreMVC
     public class Startup
     {
 
-        public static ILoggerRepository LogRepository { get; set; }
         public IConfiguration Configuration { get; }
         public IContainer ApplicationContainer { get; private set; }
 
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            //log4net
-            LogRepository = LogManager.CreateRepository("NETCoreRepository");
-            //指定配置文件
-            XmlConfigurator.Configure(LogRepository, new FileInfo("log4net.config"));
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.

@@ -19,17 +19,5 @@ namespace AutoFac_NetCoreMVC
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>();
-
-        public static IWebHostBuilder CreateWebHostBuilder2(string[] args)
-        {
-            var host = new WebHostBuilder()
-                .UseKestrel()
-                .ConfigureServices(services => services.AddAutofac())
-                .UseContentRoot(Directory.GetCurrentDirectory())
-                .UseIISIntegration()
-                .UseStartup<StartupDev>();
-            return host;
-        }
-
     }
 }
