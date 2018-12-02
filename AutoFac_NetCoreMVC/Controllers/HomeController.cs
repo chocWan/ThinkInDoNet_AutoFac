@@ -25,7 +25,7 @@ namespace AutoFac_NetCoreMVC.Controllers
         //属性注入
         public IReadService ReadService { set; get; }
         public IRepository<LogRequest> LogRequestRepository { set; get; }
-        private ILog logger = LogManager.GetLogger(Startup.LogRepository.Name, typeof(HomeController));
+        //private ILog logger = LogManager.GetLogger(Startup.LogRepository.Name, typeof(HomeController));
 
         public IActionResult Index()
         {
@@ -35,7 +35,7 @@ namespace AutoFac_NetCoreMVC.Controllers
             //logger.Info(res + "info");
             //logger.Error(res + "error");
             LogRequest logRequest = new LogRequest { FName= "FName", FDetails= "FDetails", FIPAddress = "FIPAddress", FMessage = "FMessage", FParameters = "FParameters", FRequestTime = DateTime.Now,FRequestType = "FRequestType", FRequestUrl = "FRequestUrl", FRequestUser = "FRequestUser" };
-            logger.Info(logRequest);
+            //logger.Info(logRequest);
             //var logRes = LogRequestRepository.GetAllList();
             return View();
         }
