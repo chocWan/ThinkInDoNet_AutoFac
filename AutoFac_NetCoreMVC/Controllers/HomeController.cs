@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using AutoFac_NetCoreMVC.Models;
 using AutoFac_NetCoreMVC.Services;
 using AutoFac_NetCoreMVC.Repositories;
+using NLog;
+using AutoFac_NetCoreMVC.Helper;
 
 namespace AutoFac_NetCoreMVC.Controllers
 {
@@ -28,12 +30,12 @@ namespace AutoFac_NetCoreMVC.Controllers
         {
             string res = ReadService.GetContent("choc test");
             var res2 = ReadService.GetContents();
-            //logger.Debug(res +"debug");
-            //logger.Info(res + "info");
-            //logger.Error(res + "error");
+            LogHelper.GetLogger().Debug(res + "debug");
+            LogHelper.GetLogger().Info(res + "info");
+            LogHelper.GetLogger().Error(res + "error");
             LogRequest logRequest = new LogRequest { FName= "FName", FDetails= "FDetails", FIPAddress = "FIPAddress", FMessage = "FMessage", FParameters = "FParameters", FRequestTime = DateTime.Now,FRequestType = "FRequestType", FRequestUrl = "FRequestUrl", FRequestUser = "FRequestUser" };
-            //logger.Info(logRequest);
-            //var logRes = LogRequestRepository.GetAllList();
+            LogHelper.LogRequest(logRequest);
+            var logRes = LogRequestRepository.GetAllList();
             return View();
         }
 
